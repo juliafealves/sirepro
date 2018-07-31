@@ -9,6 +9,6 @@ public class Profissional implements Habilidade {
         if(autoestima < 7 || nivelEmpatia < 7)
             penalidade = 0.1;
 
-        return (experienciaProfisional / 10) - penalidade;
+        return (int)((experienciaProfisional / 10) - penalidade);
     }
 }

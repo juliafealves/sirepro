@@ -1,7 +1,9 @@
 package controllers;
 
+import utils.GerenciaArquivo;
 import entities.Pessoa;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -39,5 +41,13 @@ public class SistemaController {
 
     public int getProblemasResolvidos(String nomePessoa){
         return this.pessoas.get(nomePessoa).getProblemasResolvidos();
+    }
+
+    public void persisteNomePessoas() throws IOException {
+        GerenciaArquivo.salva(this.listarPessoas(), "pessoas.txt");
+    }
+
+    public String leNomePessoas() throws IOException{
+        return GerenciaArquivo.leitura("pessoas.txt");
     }
 }
