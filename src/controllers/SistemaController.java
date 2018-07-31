@@ -32,4 +32,12 @@ public class SistemaController {
     public int getNivelHabilidade(String nomePessoa){
         return this.pessoas.get(nomePessoa).calculaHabilidade();
     }
+
+    public void resolverProblema(String nomePessoa, int nivelProblema){
+        this.pessoas.get(nomePessoa).resolveProblema(nivelProblema);
+    }
+
+    public int getProblemasResolvidos(String nomePessoa){
+        return this.pessoas.get(nomePessoa).getProblemasResolvidos();
+    }
 }

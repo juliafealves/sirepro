@@ -9,12 +9,14 @@ public class Pessoa {
     private int nivelEmpatia;
     private int experienciaProfissional;
     private Habilidade habilidade;
+    private int problemasResolvidos;
 
     public Pessoa(String nome, int autoestima, int nivelEmpatia, int experienciaProfissional) {
         this.nome = nome;
         this.autoestima = autoestima;
         this.nivelEmpatia = nivelEmpatia;
         this.experienciaProfissional = experienciaProfissional;
+        this.problemasResolvidos = 0;
     }
 
     public void ativaHabilidade(String habilidade){
@@ -30,6 +32,15 @@ public class Pessoa {
 
     public int calculaHabilidade(){
         return this.habilidade.calculaNivel(autoestima, nivelEmpatia, experienciaProfissional);
+    }
+
+    public void resolveProblema(int nivelProblema){
+        if(nivelProblema <= this.calculaHabilidade())
+            this.problemasResolvidos++;
+    }
+
+    public int getProblemasResolvidos() {
+        return problemasResolvidos;
     }
 
     @Override
