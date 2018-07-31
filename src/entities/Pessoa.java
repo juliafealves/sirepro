@@ -8,12 +8,28 @@ public class Pessoa {
     private int autoestima;
     private int nivelEmpatia;
     private int experienciaProfissional;
+    private Habilidade habilidade;
 
     public Pessoa(String nome, int autoestima, int nivelEmpatia, int experienciaProfissional) {
         this.nome = nome;
         this.autoestima = autoestima;
         this.nivelEmpatia = nivelEmpatia;
         this.experienciaProfissional = experienciaProfissional;
+    }
+
+    public void ativaHabilidade(String habilidade){
+        if("pessoal".equalsIgnoreCase(habilidade))
+            this.habilidade = new Pessoal();
+        else if("profissional".equalsIgnoreCase(habilidade))
+            this.habilidade = new Profissional();
+        else if("interpessoal".equalsIgnoreCase(habilidade))
+            this.habilidade = new Interpessoal();
+        else
+            throw new IllegalArgumentException("Habilidade inválida.");
+    }
+
+    public int calculaHabilidade(){
+        return this.habilidade.calculaNivel(autoestima, nivelEmpatia, experienciaProfissional);
     }
 
     @Override

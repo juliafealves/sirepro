@@ -24,4 +24,12 @@ public class SistemaController {
     public String listarPessoas(){
         return this.pessoas.values().stream().map(Pessoa::toString).collect(Collectors.joining(System.lineSeparator()));
     }
+
+    public void ativarHabilidade(String nomePessoa, String hab){
+        this.pessoas.get(nomePessoa).ativaHabilidade(hab);
+    }
+
+    public int getNivelHabilidade(String nomePessoa){
+        return this.pessoas.get(nomePessoa).calculaHabilidade();
+    }
 }
